@@ -1,0 +1,60 @@
+
+plugins {
+    id 'java'
+    id 'maven-publish'
+}
+
+group = 'org.rundeck'
+archivesBaseName = 'rundeck-data-models'
+version = '1.0.0'
+
+java {
+    sourceCompatibility = JavaVersion.VERSION_11
+    targetCompatibility = JavaVersion.VERSION_11
+}
+
+repositories {
+    mavenCentral()
+}
+
+dependencies {
+    compileOnly "org.projectlombok:lombok:${lombokVersion}"
+    annotationProcessor "org.projectlombok:lombok:${lombokVersion}"
+    testImplementation platform('org.junit:junit-bom:5.9.1')
+    testImplementation 'org.junit.jupiter:junit-jupiter'
+}
+
+publishing {
+    publications {
+        mavenJava(MavenPublication) {
+            from components.java
+            pom {
+                name = 'Rundeck Data Models'
+                description = 'Data models for persistent Rundeck data'
+                url = 'https://rundeck.org'
+                licenses {
+                    license {
+                        name = 'The Apache License, Version 2.0'
+                        url = 'http://www.apache.org/licenses/LICENSE-2.0.txt'
+                    }
+                }
+                developers {
+                    developer {
+                        id = 'sjoyner'
+                        name = 'Stephen Joyner'
+                        email = 'sjoyner@pagerduty.com'
+                    }
+                }
+                scm {
+                    connection = 'scm:git:git://github.com/rundeck/rundeck-data-models.git'
+                    developerConnection = 'scm:git:ssh://github.com/rundeck/rundeck-data-models.git'
+                    url = 'https://github.com/rundeck/rundeck-data-models'
+                }
+            }
+        }
+    }
+}
+
+test {
+    useJUnitPlatform()
+}
