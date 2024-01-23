@@ -1,0 +1,76 @@
+version: 2.1
+
+orbs:
+  aws-cli: circleci/aws-cli@1.0.0
+
+executors:
+  machine-builder:
+    machine:
+      image: ubuntu-2204:2023.10.1
+    parameters:
+      resource_class:
+        type: string
+        default: small
+
+job-defaults: &job-defaults
+  # Using an absolute path here prevents issues with bash interpolations.
+  working_directory: /home/circleci/workspace
+  environment:
+    CIRCLE_PIPELINE_NUM: << pipeline.number >>
+    GRADLE_OPTS: -XX:MaxRAMPercentage=80.0
+    JAVA_OPTS: -XX:MaxRAMPercentage=80.0
+    JAVA_HOME: /usr/lib/jvm/zulu11
+
+commands:
+  install-build-dependencies:
+    description: Install Build Dependencies
+    steps:
+      - aws-cli/install
+      - run-build-step:
+          step-name: Install Build Dependencies
+          command: dependencies_build_setup
+  run-build-step:
+    description: "Runs a build command with full build environment"
+    parameters:
+      step-name:
+        type: string
+      command:
+        type: string
+      when:
+        type: string
+        default: on_success
+    steps:
+      - run:
+          name: << parameters.step-name >>
+          when: << parameters.when >>
+          command: |
+            source scripts/circleci/setup.sh
+            echo "=== ENV ===" && env && echo "=== ENV END ==="
+            set -x            
+            <<parameters.command>>
+
+jobs:
+
+  maven-publish:
+    <<: *job-defaults
+    executor:
+      name: machine-builder
+
+    steps:
+      - install-build-dependencies
+      - checkout
+      - run-build-step:
+          step-name: Publish to Sonatype
+          command: packaging_publish_maven
+
+workflows:
+
+  build_and_publish:
+    jobs:
+      - maven-publish:
+          name: Maven Publish
+          filters:
+            branches:
+              ignore: /.*/
+            tags:
+              only: /.*/
