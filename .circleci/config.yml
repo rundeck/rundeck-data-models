@@ -57,8 +57,8 @@ jobs:
       name: machine-builder
 
     steps:
-      - install-build-dependencies
       - checkout
+      - install-build-dependencies
       - run-build-step:
           step-name: Publish to Sonatype
           command: packaging_publish_maven
@@ -73,4 +73,4 @@ workflows:
             branches:
               ignore: /.*/
             tags:
-              only: /.*/
+              only: /v.*/
