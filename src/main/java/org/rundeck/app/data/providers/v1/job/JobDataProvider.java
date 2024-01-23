@@ -79,7 +79,8 @@ public interface JobDataProvider extends JobQueryProvider {
     /**
      * Removes a Job
      *
-     * @param id Job id
+     * @param id Job id (internal database)
+     * @return an object representing the result of the deletion
      * @throws DataAccessException on error
      */
     DeletionResult delete(final Serializable id) throws DataAccessException;
@@ -88,6 +89,7 @@ public interface JobDataProvider extends JobQueryProvider {
      * Removes a Job
      *
      * @param uuid Job uuid
+     * @return an object representing the result of the deletion
      * @throws DataAccessException on error
      */
     DeletionResult deleteByUuid(final String uuid) throws DataAccessException;

@@ -201,7 +201,7 @@ public interface TokenDataProvider extends DataProvider {
     /**
      * Counts the number of AuthenticationTokens by creator and type
      *
-     * * @param creatorLoginName - login name of the token creator
+     * @param creatorLoginName - login name of the token creator
      * @param type - the type of AuthenticationToken
      * @return count of tokens matching the creator and type parameters
      */

@@ -41,6 +41,7 @@ public interface WebhookDataProvider extends DataProvider {
      *
      * @param saveWebhookRequest of the webhook to be created
      * @return A SaveWebhookResponse with the result of the webhook creation
+     * @throws DataAccessException if an error occurs
      */
     SaveWebhookResponse createWebhook(SaveWebhookRequest saveWebhookRequest) throws DataAccessException;
     /**
@@ -48,6 +49,7 @@ public interface WebhookDataProvider extends DataProvider {
      *
      * @param saveWebhookRequest of the webhook to be updated
      * @return A SaveWebhookResponse with the result of the webhook update
+     * @throws DataAccessException if an error occurs
      */
     SaveWebhookResponse updateWebhook(SaveWebhookRequest saveWebhookRequest) throws DataAccessException;
 

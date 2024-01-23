@@ -44,7 +44,7 @@ public interface JobData extends JobDataSummary {
 
     /**
      * Configuration for plugins that are attached to this job, such as execution lifecycle plugins
-     * @return
+     * @return a map containing the plugin name as the key and the configuration data as the value
      */
     Map<String, Object> getPluginConfigMap();
 
@@ -58,7 +58,7 @@ public interface JobData extends JobDataSummary {
 
     /**
      * Configuration for job components attached to this job
-     * @return
+     * @return a map containing the component name as the key and the configuration data as the value
      */
     Map<String, JobComponentData> getComponents();
 }

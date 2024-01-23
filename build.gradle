@@ -77,8 +77,10 @@ publishing {
     }
 }
 
-signing {
-    sign(publishing.publications)
+if(findProperty("signing.keyId") != null && findProperty("signing.password") != null) {
+    signing {
+        sign(publishing.publications)
+    }
 }
 
 java {

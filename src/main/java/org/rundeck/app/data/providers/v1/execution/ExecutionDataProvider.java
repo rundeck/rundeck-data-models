@@ -42,9 +42,9 @@ public interface ExecutionDataProvider extends DataProvider {
 
     /**
      * Save execution data
-     * @param execution
+     * @param execution - the execution data to save
      * @return the saved execution data object
-     * @throws DataAccessException
+     * @throws DataAccessException on error
      */
     ExecutionData save(ExecutionData execution) throws DataAccessException;
 
@@ -57,8 +57,8 @@ public interface ExecutionDataProvider extends DataProvider {
 
     /**
      *
-     * @param jobUuid
-     * @param pageable
+     * @param jobUuid job uuid
+     * @param pageable paging parameters
      * @return a list of executions for the given job uuid
      */
     List<ExecutionDataSummary> findAllExecutionsByJob(String jobUuid, Pageable pageable);

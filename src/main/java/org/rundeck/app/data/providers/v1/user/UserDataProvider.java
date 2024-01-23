@@ -33,6 +33,7 @@ public interface UserDataProvider extends DataProvider {
      *
      * @param login of the User, format String
      * @return User if found, otherwise create user
+     * @throws DataAccessException if an error occurs
      */
     RdUser findOrCreateUser(String login) throws DataAccessException;
 

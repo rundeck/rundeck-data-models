@@ -25,13 +25,13 @@ import java.util.Map;
 public interface WorkflowStepData {
     /**
      * A step that describes specific error handling for this step
-     * @return
+     * @return The workflow step describing the error handler
      */
     WorkflowStepData getErrorHandler();
 
     /**
-     * A boolean that tells the system to proceed on success
-     * @return
+     *
+     * @return A boolean that tells the system to proceed on success of an error handler
      */
     Boolean getKeepgoingOnSuccess();
 
@@ -42,14 +42,14 @@ public interface WorkflowStepData {
     String getDescription();
 
     /**
-     * The configuration data for the plugin defined by this step
-     * @return
+     *
+     * @return The configuration data for the plugin defined by this step
      */
     Map<String,Object> getConfiguration();
 
     /**
-     * True is this step is a node step, false if it is a workflow step
-     * @return
+     *
+     * @return True is this step is a node step, false if it is a workflow step
      */
     Boolean getNodeStep();
 
