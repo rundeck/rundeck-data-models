@@ -15,7 +15,6 @@
  */
 package org.rundeck.app.data.providers.v1.job;
 
-import org.rundeck.app.data.model.v1.job.JobBrowseItem;
 import org.rundeck.app.data.model.v1.job.JobDataSummary;
 import org.rundeck.app.data.model.v1.page.Page;
 import org.rundeck.app.data.model.v1.query.JobBrowseInput;
@@ -27,7 +26,8 @@ public interface JobQueryProvider {
 
     /**
      * basic query by group paths
-     *
+     * @param input input parameters
+     * @return page of results
      */
     Page<JobDataSummary> queryJobsAndGroups(JobBrowseInput input);
 

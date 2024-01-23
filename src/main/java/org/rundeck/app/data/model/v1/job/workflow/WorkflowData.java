@@ -23,32 +23,32 @@ import java.util.Map;
  */
 public interface WorkflowData {
     /**
-     * Thread count to execute this workflow
-     * @return
+     *
+     * @return Thread count to execute this workflow
      */
     Integer getThreadcount();
 
     /**
-     * Defines the workflow behavior when an error is encountered
-     * @return
+     *
+     * @return Defines the workflow behavior when an error is encountered
      */
     Boolean getKeepgoing();
 
     /**
-     * The steps to run in the workflow
-     * @return
+     *
+     * @return The steps to run in the workflow
      */
     List<WorkflowStepData> getSteps();
 
     /**
-     * Defines the workflow strategy plugin to apply for this workflow
-     * @return
+     *
+     * @return Defines the workflow strategy plugin to apply for this workflow
      */
     String getStrategy();
 
     /**
-     * Configuration data for the plugins attaches to the workflow
-     * @return
+     *
+     * @return Configuration data for the plugins attached to the workflow
      */
     Map<String,Object> getPluginConfigMap();
 }

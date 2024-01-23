@@ -23,8 +23,10 @@ packaging_publish_maven() {
         -Psigning.secretKeyRingFile="$(realpath "${HOME}/.gnupg/secring.gpg")" \
         -Psigning.password="${RUNDECK_SIGNING_PASSWORD}" \
         -Psigning.keyId="${RUNDECK_SIGNING_KEYID}" \
-        -PsigningPassword="${RUNDECK_SIGNING_PASSWORD}" \
         -PsonatypeUsername="${SONATYPE_USERNAME}" \
         -PsonatypePassword="${SONATYPE_PASSWORD}" \
         publishToSonatype closeSonatypeStagingRepository
 }
+
+RUNDECK_SIGNING_PASSWORD
+RUNDECK_SIGNING_KEYID

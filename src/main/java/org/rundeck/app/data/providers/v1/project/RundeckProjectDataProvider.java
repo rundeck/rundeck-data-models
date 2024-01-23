@@ -85,7 +85,7 @@ public interface RundeckProjectDataProvider extends DataProvider {
 
     /**
      * Rerieves all enabled project names by state
-     *
+     * @param state Project state from @{@link RdProject.State}
      * @return Collection of project names
      */
     Collection<String> getFrameworkProjectNamesByState(RdProject.State state);
@@ -99,7 +99,7 @@ public interface RundeckProjectDataProvider extends DataProvider {
 
     /**
      * Retrieves total the number of Rundeck Projects
-     *
+     * @param state Project state from @{@link RdProject.State}
      * @return Count of RundeckProjects
      */
     int countFrameworkProjectsByState(RdProject.State state);
