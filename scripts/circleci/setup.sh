@@ -21,5 +21,5 @@ export PACKAGING_DIR="${WORKDIR}/packaging"
 export S3_CI_SHARED_RESOURCES="s3://rundeck-ci-resources/shared/resources"
 
 # Import functions
-source "${RUNDECK_CORE_DIR}/scripts/circleci/packaging-functions.sh"
-source "${RUNDECK_CORE_DIR}/scripts/circleci/dependencies-functions.sh"
+source "${WORKDIR}/scripts/circleci/packaging-functions.sh"
+source "${WORKDIR}/scripts/circleci/dependencies-functions.sh"
