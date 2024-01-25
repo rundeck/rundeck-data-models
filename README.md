@@ -29,5 +29,5 @@ For CircleCi to publish the new version to Maven Central
 the tag must start with `v` and end with the version number.
 
 Example: build.gradle version is 1.0.1 create a tag named `v1.0.1`
-then push with `git push --tags` this will trigger the CircleCi workflow
+then push with `git push origin v1.0.1` this will trigger the CircleCi workflow
 to publish the new version to Maven Central.
