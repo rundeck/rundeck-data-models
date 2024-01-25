@@ -25,5 +25,5 @@ packaging_publish_maven() {
         -Psigning.keyId="${RUNDECK_SIGNING_KEYID}" \
         -PsonatypeUsername="${SONATYPE_USERNAME}" \
         -PsonatypePassword="${SONATYPE_PASSWORD}" \
-        publishToSonatype closeSonatypeStagingRepository
+        publishToSonatype closeAndReleaseSonatypeStagingRepository
 }
