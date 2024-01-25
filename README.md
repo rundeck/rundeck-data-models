@@ -16,3 +16,18 @@ so that the data can be persisted to a database.
 The data providers provide a well-defined interface that describes how persistent
 data is accessed and manipulated. The default implementation of a data providers
 uses the Grails GORM API to interact with the persistent data.
+
+## Releasing
+
+* After making changes to the models, bump the version in the build.gradle file.
+* Create a pull request with your changes.
+* After the PR has been approved and merged,
+pull the latest changes to `main` and create a tag
+that corresponds to the version in the build.gradle file.
+
+For CircleCi to publish the new version to Maven Central
+the tag must start with `v` and end with the version number.
+
+Example: build.gradle version is 1.0.1 create a tag named `v1.0.1`
+then push with `git push --tags` this will trigger the CircleCi workflow
+to publish the new version to Maven Central.
