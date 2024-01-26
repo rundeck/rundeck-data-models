@@ -51,18 +51,18 @@ public interface StorageDataProvider extends DataProvider {
      *
      * @param metadata RundeckStorage metadata
      * @param data RundeckStorage attributes
-     * @param id id
+     * @param storage RundeckStorage base data
      * @throws DataAccessException on error
      */
-    void update(final Serializable id, final RundeckStorage data, Map<String, String> metadata) throws DataAccessException;
+    void update(final RundeckStorage storage, final RundeckStorage data, Map<String, String> metadata) throws DataAccessException;
 
     /**
      * Removes a RundeckStorage
      *
-     * @param id of the RundeckStorage
+     * @param storage RundeckStorage data
      * @throws DataAccessException on error
      */
-    void delete(final Serializable id) throws DataAccessException;
+    void delete(final RundeckStorage storage) throws DataAccessException;
 
     /**
      * Finds a RundeckStorage based on namespace, directory and name
