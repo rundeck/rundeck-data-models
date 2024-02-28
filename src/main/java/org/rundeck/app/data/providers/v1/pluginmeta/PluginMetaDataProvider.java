@@ -27,5 +27,5 @@ public interface PluginMetaDataProvider extends DataProvider {
     void deleteByProjectAndKey(String project, String key);
     void deleteAllByProjectAndKeyLike(String project, String keyLike);
     Integer deleteAllByProject(String project);
-    void setJobPluginMeta(String project, String id, String type, Map key);
+    void setJobPluginMeta(String project, String key, Map metadata);
 }
