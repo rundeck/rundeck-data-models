@@ -21,6 +21,7 @@ import java.util.Date;
 public interface LogFileStorageRequestData {
     Serializable getId();
     Serializable getExecutionId();
+    String getExecutionUuid();
     String getPluginName();
     String getFiletype();
     Boolean getCompleted();
