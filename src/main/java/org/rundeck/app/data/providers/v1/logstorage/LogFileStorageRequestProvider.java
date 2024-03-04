@@ -26,12 +26,12 @@ import java.util.Set;
 public interface LogFileStorageRequestProvider {
     LogFileStorageRequestData get(Long id);
     LogFileStorageRequestData retryLoad(Long requestId, Long retryMaxMs);
-    LogFileStorageRequestData build(String pluginName, String filetype, Boolean completed, Long executionId);
+    LogFileStorageRequestData build(String pluginName, String filetype, Boolean completed, String executionUuid);
     LogFileStorageRequestData create(LogFileStorageRequestData data) throws Exception;
-    LogFileStorageRequestData update(Long id, LogFileStorageRequestData data) throws Exception;
-    LogFileStorageRequestData updateFiletypeAndCompleted(Long id, String filetype, Boolean completed) throws Exception;
-    LogFileStorageRequestData updateCompleted(Long id, Boolean completed) throws Exception;
-    void delete(Long id);
+    LogFileStorageRequestData update(String executionUuid, LogFileStorageRequestData data) throws Exception;
+    LogFileStorageRequestData updateFiletypeAndCompleted(String executionUuid, String filetype, Boolean completed) throws Exception;
+    LogFileStorageRequestData updateCompleted(String executionUuid, Boolean completed) throws Exception;
+    void delete(String executionUuid);
     LogFileStorageRequestData findByExecutionId(Long executionId);
     List<DuplicateLogFileStorageResponse> findDuplicates();
     List<CompletedStatusLogFileStorageResponse> listCompletedStatusByExecutionId(Long executionId);
