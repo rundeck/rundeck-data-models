@@ -16,8 +16,6 @@
 package org.rundeck.app.data.providers.v1.logstorage;
 
 import org.rundeck.app.data.model.v1.logstorage.LogFileStorageRequestData;
-import org.rundeck.app.data.providers.v1.logstorage.dto.CompletedStatusLogFileStorageResponse;
-import org.rundeck.app.data.providers.v1.logstorage.dto.DuplicateLogFileStorageResponse;
 
 import java.util.List;
 import java.util.Map;
@@ -32,10 +30,8 @@ public interface LogFileStorageRequestProvider {
     LogFileStorageRequestData updateFiletypeAndCompleted(String executionUuid, String filetype, Boolean completed) throws Exception;
     LogFileStorageRequestData updateCompleted(String executionUuid, Boolean completed) throws Exception;
     void delete(String executionUuid);
-    LogFileStorageRequestData findByExecutionId(Long executionId);
-    List<DuplicateLogFileStorageResponse> findDuplicates();
-    List<CompletedStatusLogFileStorageResponse> listCompletedStatusByExecutionId(Long executionId);
-    List<LogFileStorageRequestData> listByIncompleteAndClusterNodeNotInExecIds(String serverUUID, Set<Long> execIds, Map paging);
-    Long countByIncompleteAndClusterNodeNotInExecIds(String serverUUID, Set<Long> execIds);
+    LogFileStorageRequestData findByExecutionUuid(String executionUuid);
+    List<LogFileStorageRequestData> listByIncompleteAndClusterNodeNotInExecUuids(String serverUUID, Set<String> execUuids, Map paging);
+    Long countByIncompleteAndClusterNodeNotInExecUuids(String serverUUID, Set<String> execUuids);
 
 }
