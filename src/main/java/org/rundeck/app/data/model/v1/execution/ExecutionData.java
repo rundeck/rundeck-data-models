@@ -25,6 +25,7 @@ import java.util.List;
 import java.util.Map;
 
 public interface ExecutionData {
+    Serializable getInternalId();
     String getUuid();
     String getJobUuid();
     String getProject();
