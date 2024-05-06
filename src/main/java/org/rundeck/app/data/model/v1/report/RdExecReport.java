@@ -37,4 +37,5 @@ public interface RdExecReport{
     String getFailedNodeList();
     String getFilterApplied();
     String getJobUuid();
+    String getExecutionUuid();
 }

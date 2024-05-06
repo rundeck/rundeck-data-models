@@ -26,19 +26,16 @@ import java.util.List;
 
 public interface ExecReportDataProvider extends DataProvider {
     RdExecReport get(Long id);
-    SaveReportResponse createReportFromExecution(Long id);
-    SaveReportResponse createReportFromExecution(String uuid);
     SaveReportResponse saveReport(SaveReportRequest saveReportRequest);
     List<RdExecReport> findAllByProject(String projectName);
     List<RdExecReport> findAllByStatus(String status);
-    List<RdExecReport> findAllByExecutionId(Long id);
-    List<RdExecReport> findAllByProjectAndExecutionIdInList(String projectName, List<Long> execIds);
+    List<RdExecReport> findAllByProjectAndExecutionUuidInList(String projectName, List<String> execUuids);
     int countByProject(String projectName);
     int countExecutionReports(RdExecQuery execQuery);
-    int countExecutionReportsWithTransaction(RdExecQuery execQuery, boolean isJobs, Long jobId);
+    int countExecutionReportsWithTransaction(RdExecQuery execQuery, boolean isJobs, String jobUuid);
     int countAndSaveByStatus();
-    List<RdExecReport> getExecutionReports(RdExecQuery execQuery, boolean isJobs, Long jobId);
+    List<RdExecReport> getExecutionReports(RdExecQuery execQuery, boolean isJobs, String jobUuid, List<String> executionUuids);
     void deleteByProject(String projectName);
     void deleteWithTransaction(String projectName);
-    void deleteAllByExecutionId(Long executionId);
+    void deleteAllByExecutionUuid(String executionUuid);
 }
