@@ -27,6 +27,7 @@ public interface ReferencedExecutionDataProvider extends DataProvider {
     RdReferencedExecution findByJobUuid(String jobUuid);
     List<JobDataSummary> parentJobSummaries(String jobUuid, int max);
     List<String> executionProjectList(String jobUuid, int max);
+    List<String> getExecutionUuidsByJobUuid(String jobUuid);
     int countByJobUuid(String jobUuid);
     int countByJobUuidAndStatus(String jobUuid, String status);
     void deleteByExecutionId(Long id);
