@@ -32,10 +32,31 @@ public interface ExecReportDataProvider extends DataProvider {
     List<RdExecReport> findAllByProjectAndExecutionUuidInList(String projectName, List<String> execUuids);
     int countByProject(String projectName);
     int countExecutionReports(RdExecQuery execQuery);
-    int countExecutionReportsWithTransaction(RdExecQuery execQuery, boolean isJobs, String jobUuid);
     int countAndSaveByStatus();
-    List<RdExecReport> getExecutionReports(RdExecQuery execQuery, boolean isJobs, String jobUuid, List<String> executionUuids);
     void deleteByProject(String projectName);
     void deleteWithTransaction(String projectName);
     void deleteAllByExecutionUuid(String executionUuid);
+
+    /**
+     * Get execution reports with transaction and list of executions ids
+     * This method can be used when you already have the executions ids
+     * @param execQuery
+     * @param isJobs
+     * @param jobUuid
+     * @param executionUuids
+     * @return
+     */
+    List<RdExecReport> getExecutionReports(RdExecQuery execQuery, boolean isJobs, String jobUuid, List<Long> executionUuids);
+
+    /**
+     * Count execution reports with transaction and list of executions ids
+     * This method can be used when you already have the executionss ids
+     * @param query query
+     * @param isJobs is job
+     * @param jobUuid scheduled execution uuid
+     * @param execsId list of execution ids
+     * @return count
+     */
+    int countExecutionReportsWithTransaction(RdExecQuery query, boolean isJobs, String jobUuid, List<Long> execsId);
+
 }
